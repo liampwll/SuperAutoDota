@@ -1,0 +1,13 @@
+name = "sad_server"
+description = "Shiny new project"
+version = "0.0.0"
+
+authors = ["Liam Powell"]
+maintainers = ["Liam Powell <liam@liampwll.com>"]
+maintainers-logins = ["liampwll"]
+
+executables = ["sad_server"]
+[[depends-on]]  # Added by alr
+aws = "^21.0.0"  # Added by alr
+[[depends-on]]  # Added by alr
+gnatcoll_sqlite = "^21.0.0"  # Added by alr

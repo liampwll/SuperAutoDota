@@ -1,0 +1,94 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/gui.css" />
+    </styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/gui.js" />
+    </scripts>
+
+    <snippets>
+        <snippet name="HeroShopItem">
+            <Panel class="HeroShopItem ButtonBevel" hittest="false">
+                <DOTAHeroImage id="HeroImage" hittest="false" heroimagestyle="portrait" />
+                <DOTAAbilityImage id="AbilityImage" hittest="false" />
+                <Label class="ShopText" id="HeroName" />
+                <Label class="ShopText" id="HeroCost" />
+            </Panel>
+        </snippet>
+
+        <snippet name="ItemShopItem">
+            <Panel class="ItemShopItem ButtonBevel" hittest="false">
+                <DOTAItemImage id="ItemImage" hittest="false" />
+                <Label class="ShopText" id="ItemName" />
+                <Label class="ShopText" id="ItemCost" />
+            </Panel>
+        </snippet>
+    </snippets>
+
+    <Panel style="width: 100%; height: 100%;" hittest="false" visibility="visible">
+        <Panel id="MainMenuOfflinePopup" class="MainMenu" hittest="false" visibility="collapse">
+            <Label id="MainMenuTitleText" text="OFFLINE MODE" />
+            <Panel class="SectionHeaderLineNoMargin" />
+            <Label id="MainMenuOfflineMode" text="Connection to Super Auto Dota servers not available. You can play offline but saves are not available and you will be playing against bots." />
+            <Panel id="ClosePopup" class="ButtonBevel" hittest="true" onactivate="$.GetContextPanel().FindChild('MainMenuOfflinePopup').style.visibility = 'collapse';">
+                <Label text="Continue" />
+            </Panel>
+        </Panel>
+
+        <Panel id="MainMenuConnecting" class="MainMenu" hittest="false" visibility="collapse">
+            <Label id="MainMenuTitleText" text="SUPER AUTO DOTA" />
+            <Panel class="SectionHeaderLineNoMargin" />
+            <Label text="Connecting to Super Auto Dota servers, please wait." />
+        </Panel>
+
+        <Panel id="MainMenu" class="MainMenu" hittest="false" visibility="collapse">
+            <Label id="MainMenuTitleText" text="SUPER AUTO DOTA" />
+            <Panel class="SectionHeaderLineNoMargin" />
+            <Label id="MainMenuOfflineMode" text="Could not connect to Super Auto Dota servers. You can play offline but saves are not available and you will be playing against bots." visibility="collapse" />
+            <Label id="MainMenuBeta" text="More features coming soon, leave your suggestions on the Steam Workshop page. Coming next is buildings and unique items. I've only just released this so let me know if it's broken on the Workshop page." visibility="visible" />
+            <Panel id="ResumeSaved" class="ButtonBevel" hittest="true" disabled="true" onactivate="GameEvents.SendCustomGameEventToServer('SADTryStartGame', {'Resume': true})">
+                <Label text="Resume Saved Game" />
+            </Panel>
+            <Panel id="NewGame" class="ButtonBevel" hittest="true" onactivate="GameEvents.SendCustomGameEventToServer('SADTryStartGame', {'Resume': false})">
+                <Label text="New Game" />
+            </Panel>
+            <Panel class="SectionHeaderLine" />
+            <Label class="MenuSmallText" text="Super Auto Dota is open source. You can contribute at github.com/liampwll/SuperAutoDota" />
+        </Panel>
+
+        <Panel id="Shops" hittest="false" visibility="collapse">
+            <Label class="SectionHeader" text="Stats" />
+            <Panel class="SectionHeaderLine" />
+            <Label class="Info" id="Gold" />
+            <Label class="Info" id="Life" />
+            <Label class="Info" id="Round" />
+            <Label class="Info" id="UnitCount" />
+            <Label class="Info" text="Opponent:" />
+            <DOTAUserName class="Info" id="OpponentName" />
+            <Panel class="ShopsSpacer" />
+            <Panel class="LeftRight" hittest="false" visibility="collapse">
+                <Label class="SectionHeader" text="Hero Shop" />
+                <Panel id="RerollHero" class="Reroll ButtonBevel Plus" hittest="true" onactivate="GameEvents.SendCustomGameEventToServer('SADRerollHero', {})">
+                    <Label text="Reroll" />
+                </Panel>
+            </Panel>
+            <Panel class="SectionHeaderLine" />
+            <Panel id="HeroShop" hittest="false" />
+            <Panel class="ShopsSpacer" />
+            <Panel class="LeftRight" hittest="false" visibility="collapse">
+                <Label class="SectionHeader" text="Item Shop" />
+                <Panel id="RerollItem" class="Reroll ButtonBevel Plus" hittest="true" onactivate="GameEvents.SendCustomGameEventToServer('SADRerollItem', {})">
+                    <Label text="Reroll" />
+                </Panel>
+            </Panel>
+            <Panel class="SectionHeaderLine" />
+            <Panel id="ItemShop" hittest="false" />
+            <Panel class="ShopsSpacer" />
+            <Panel id="StartBattle" class="ButtonBevel Green" hittest="true" onactivate="GameEvents.SendCustomGameEventToServer('SADTryBattle', {})">
+                <Label text="Start Battle" />
+            </Panel>
+            <Panel class="ShopsSpacer" />
+        </Panel>
+    </Panel>
+</root>

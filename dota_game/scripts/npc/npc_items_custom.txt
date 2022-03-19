@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+    "item_sad_slot_filler"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" "item_slippers"
+		"ID"							"1456"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityTextureName" ""
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"0"
+			}
+		}
+	}
+}

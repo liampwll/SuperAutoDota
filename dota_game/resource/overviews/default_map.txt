@@ -1,0 +1,8 @@
+default_map
+{
+	material materials/overviews/default_map.vmat
+	pos_x -1536
+	pos_y 1536
+	scale 3.000
+}
+

@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+    "maps" "default_map"
+    "IsPlayable" "1"
+    "default_map"
+    {
+        "MaxPlayers" "1"
+    }
+}

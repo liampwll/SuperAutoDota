@@ -36,6 +36,7 @@ function SAD:RunBattle()
 		Unit.RespawnPos = Unit:GetAbsOrigin()
 		if not Unit.GridID then
 			Unit:ForceKill(false)
+			Unit.StartingGridID = nil
 		else
 			Unit:SetAttackCapability(Unit.OldAttackCapability)
 			Unit:SetMaxMana(Unit:GetAbilityByIndex(0):GetManaCost(-1) * 1.1)
